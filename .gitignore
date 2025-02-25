@@ -1,0 +1,56 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+
+# Test and coverage reports
+*.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.tmp
+*.out
+*.html
+
+# Pytest cache
+.cache/
+pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Allure reports
+allure-results/
+allure-report/
+
+# Screenshots
+Screenshots/
+
+# Other files
+*.pkl
+*.sqlite3
+*.db
