@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import allure
 import pytest
 from selenium import webdriver
 import os
@@ -27,3 +28,4 @@ def pytest_runtest_makereport(item, call):
         os.makedirs(os.path.dirname(screenshot_path), exist_ok=True)
         driver.save_screenshot(screenshot_path)
         print(f"Скриншот сохранен: {screenshot_path}")
+        allure.attach(driver.get_screenshot_as_png(), attachment_type=allure.attachment_type.PNG)
