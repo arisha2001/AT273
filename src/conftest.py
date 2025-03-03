@@ -1,18 +1,16 @@
 from datetime import datetime
-
 import allure
 import pytest
 from selenium import webdriver
 import os
 
-@pytest.fixture(params=["chrome", "safari"])
+@pytest.fixture(params=["chrome", "firefox"], scope='function')
 def driver(request):
     if request.param == "chrome":
         driver = webdriver.Chrome()
     else:
-        driver = webdriver.Safari()
-    # safari не хочет открываться в полноэкранном режиме
-    driver.maximize_window()
+        driver = webdriver.Firefox()
+
     yield driver
 
     driver.quit()

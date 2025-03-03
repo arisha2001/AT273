@@ -8,6 +8,9 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    def find_element(self, xpath):
+        return self.driver.find_element(By.XPATH, xpath)
+
 
     def wait_for_element_to_be_clickable(self, xpath, timeout=10):
         """Ожидание, пока элемент станет кликабельным."""

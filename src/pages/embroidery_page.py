@@ -6,7 +6,7 @@ from .base_page import BasePage
 
 
 class EmbroideryPage(BasePage):
-
+    # переход на страницу жанра "Городской пейзаж"
     def search_by_genre(self):
         # нажимаем галочку около жанра "Городской пейзаж"
         WebDriverWait(self.driver, 10).until(
@@ -24,9 +24,32 @@ class EmbroideryPage(BasePage):
 
         time.sleep(1)
 
+    def get_art_tram_track(self):
+        self.search_by_genre()
+
         # в отфильтрованном окне ищем картину с названием "Трамвайный путь"
-        tramway_path_element = self.wait_for_element_to_be_clickable(
+        return self.wait_for_element_to_be_clickable(
             "//div[@data-id='870972']/parent::*/div[@class='price']/following-sibling::div[@class='small']"
+        ).text
+
+
+    def art_tram_track_style(self):
+        self.search_by_genre()
+
+        self.driver.execute_script(
+            "document.querySelectorAll('.popup-class').forEach(el => el.style.display='none');"
         )
 
-        return tramway_path_element.text
+        time.sleep(2)
+
+        # в отфильтрованном окне открываем ссылку на картину "Трамвайный путь"
+        art = self.wait_for_element_to_be_clickable(
+            "//div[@class='heart' and @data-id='870972']/preceding-sibling::a"
+        )
+        # переходим по ссылке картины
+        self.driver.execute_script("arguments[0].click();", art)
+
+        # ищем стиль картины
+        return self.wait_for_element_to_be_clickable(
+            "//div[@class='txtline lft']//span[contains(text(), 'Стиль:')]/following-sibling::a"
+        ).text

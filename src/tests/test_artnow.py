@@ -3,12 +3,19 @@ from data_access.config import Config
 import allure
 
 
-@allure.feature("Тестирование раздела 'Вышитые картины'")
-def test_search_embroidery(driver):
+@allure.step("Проверка наличия картины 'Трамвайный путь'")
+def test_art_presence(driver):
     driver.get(Config.BASE_URL)
     test_manager = TestManager(driver)
-    result = test_manager.search_artwork()
+    art_presence = test_manager.search_artwork()
     with allure.step("Поиск картины 'Трамвайный путь'"):
-        print(f"Результат поиска: {result}")
-        assert result == "В наличии!"
+        assert art_presence == "В наличии!"
 
+
+@allure.step("Проверка стиля картины 'Трамвайный путь'")
+def test_art_style(driver):
+    driver.get(Config.BASE_URL)
+    test_manager = TestManager(driver)
+    style_art = test_manager.artwork_style()
+    with allure.step("Стиль картины 'Трамвайный путь'"):
+        assert style_art == "Реализм"

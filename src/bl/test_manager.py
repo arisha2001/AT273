@@ -10,4 +10,8 @@ class TestManager:
 
     def search_artwork(self):
         self.home_page.go_to_embroidery()
-        return self.embroidery_page.search_by_genre()
+        return self.embroidery_page.get_art_tram_track()
+
+    def artwork_style(self):
+        self.home_page.go_to_embroidery()
+        return self.embroidery_page.art_tram_track_style()
