@@ -4,3 +4,7 @@
 запустить отчет Allure: allure serve allure-results
 
 pytest -n 4 --alluredir=allure-results
+
+очистить кэш:
+rm -rf .pytest_cache                   
+rm -rf allure-results
