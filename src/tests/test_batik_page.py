@@ -7,6 +7,5 @@ import allure
 def test_art_presence(driver):
     driver.get(Config.BASE_URL)
     test_manager = TestManager(driver)
-    id_art = test_manager.batik_first_fav()
     with allure.step("Батик проверка добавления в 'Избранное'"):
-        assert id_art == "1167739"
+        assert test_manager.batik_first_fav() == "1167739"

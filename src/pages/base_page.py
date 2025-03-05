@@ -29,3 +29,6 @@ class BasePage:
                 (By.CSS_SELECTOR, css)
             )
         )
+
+    def wait_for_element_to_be_clickable_staleness(self, el, timeout=1):
+        return WebDriverWait(self.driver, timeout).until(EC.staleness_of(el))
