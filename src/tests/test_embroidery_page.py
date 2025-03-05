@@ -7,7 +7,7 @@ import allure
 def test_art_presence(driver):
     driver.get(Config.BASE_URL)
     test_manager = TestManager(driver)
-    art_presence = test_manager.search_artwork()
+    art_presence = test_manager.search_art_tram_track()
     with allure.step("Поиск картины 'Трамвайный путь'"):
         assert art_presence == "В наличии!"
 
@@ -16,6 +16,6 @@ def test_art_presence(driver):
 def test_art_style(driver):
     driver.get(Config.BASE_URL)
     test_manager = TestManager(driver)
-    style_art = test_manager.artwork_style()
+    style_art = test_manager.tram_track_style()
     with allure.step("Стиль картины 'Трамвайный путь'"):
         assert style_art == "Реализм"

@@ -3,4 +3,4 @@
 
 запустить отчет ALlure: allure serve allure-results
 
-killall safaridriver
+pytest -n 4 --alluredir=allure-results
